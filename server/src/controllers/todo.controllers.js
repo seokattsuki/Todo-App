@@ -4,7 +4,7 @@ import { errorHandeling } from "../middlewares/error.js"
 const router = express.Router();
 
 // get all todos
-const getAllTodos = async (req, res, next) => {
+export const getAllTodos = async (req, res, next) => {
     try {
     const todos = await Todo.find();
     if( todos.length === 0){
@@ -20,7 +20,7 @@ const getAllTodos = async (req, res, next) => {
 }
 
 // Handle "get single todo by ID"
-const getSingleTodo = async (req, res, next) => {
+export const getSingleTodo = async (req, res, next) => {
     try {
         const { id } = req.params;
         const todo = await Todo.findById(id);
@@ -37,7 +37,7 @@ const getSingleTodo = async (req, res, next) => {
 }
 
 // create a new todo
-const createTodo = async (req, res, next) => {
+export const createTodo = async (req, res, next) => {
     try {
         const TodoData = req.body;
         if(!TodoData){
@@ -53,7 +53,7 @@ const createTodo = async (req, res, next) => {
 }
 
 // update a Todo
-const updateTodo = async (req, res, next) => {
+export const updateTodo = async (req, res, next) => {
     try {
         const { id } = req.params;
         const updateData = req.body;
@@ -77,7 +77,7 @@ const updateTodo = async (req, res, next) => {
 }
 
 //delete a todo
-const deleteTodo = async (req, res, next) => {
+export const deleteTodo = async (req, res, next) => {
     try {
         const { id } = req.params;
 
@@ -96,7 +96,7 @@ const deleteTodo = async (req, res, next) => {
 }
 
 // mark as completed
-const markAsCompleted = async (req, res, next) => {
+export const markAsCompleted = async (req, res, next) => {
     try {
         const { id } = req.params;
 
