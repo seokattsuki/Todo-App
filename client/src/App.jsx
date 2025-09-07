@@ -17,9 +17,23 @@ function App() {
   return (
     <div>
       <h1>Todo List</h1>
+        <ul>
+          {todos.length > 0 ? (todos.map((todo) => (
+            <li key={todo._id}>
+              <span style={{textDecoration: todo.isCompleted ? 'line-through' : 'none'}}>
+                {todo.title}
+              </span>
+
+              // add update and delete buttons
+            </li>
+          ))
+        ) :(
+          <p>No todos available</p>
+        )}
+        </ul>
     </div>
   )
 }
 
 
-export default App
+export default App;
