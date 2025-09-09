@@ -27,30 +27,49 @@ const AddTodoForm = ({ onTodoAdded }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col gap-3 bg-white p-4 rounded-2xl shadow-md w-full max-w-md mx-auto"
+      className="max-w-2xl mx-auto bg-gray-800 border border-gray-700 rounded-lg p-6 shadow-sm"
     >
-      <input
-        type="text"
-        placeholder="Todo title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        required
-      />
-      <input
-        type="text"
-        placeholder="Description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-      />
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-lg disabled:bg-gray-400"
-      >
-        {isSubmitting ? "Adding..." : "Add Todo"}
-      </button>
+      <div className="space-y-4">
+        <div className="relative">
+          <input
+            type="text"
+            placeholder="What needs to be done?"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+            required
+          />
+        </div>
+        
+        <div className="relative">
+          <textarea
+            placeholder="Add some details... (optional)"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            rows="3"
+            className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 resize-none"
+          />
+        </div>
+        
+        <button
+          type="submit"
+          disabled={isSubmitting || !title.trim()}
+          className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-medium py-3 px-6 rounded-lg transition-all duration-200"
+        >
+          <div className="flex items-center justify-center gap-2">
+            {isSubmitting ? (
+              <>
+                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                <span>Adding...</span>
+              </>
+            ) : (
+              <>
+                <span>Add Task</span>
+              </>
+            )}
+          </div>
+        </button>
+      </div>
     </form>
   );
 };

@@ -1,24 +1,28 @@
 @import "tailwindcss";
 
-@theme {
-  --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
-  --color-primary-500: #3b82f6;
-  --color-primary-600: #2563eb;
-  --color-primary-700: #1d4ed8;
+:root {
+  --color-primary-400: #818cf8;
+  --color-primary-500: #6366f1;
+  --color-primary-600: #4f46e5;
+  --color-primary-700: #4338ca;
   
-  --color-success-500: #22c55e;
-  --color-success-600: #16a34a;
+  --color-success-400: #34d399;
+  --color-success-500: #10b981;
+  --color-success-600: #059669;
   
+  --color-warning-400: #fbbf24;
   --color-warning-500: #f59e0b;
   --color-warning-600: #d97706;
   
+  --color-danger-400: #f87171;
   --color-danger-500: #ef4444;
   --color-danger-600: #dc2626;
+}
 
-  --animate-fade-in: fade-in 0.5s ease-in-out;
-  --animate-slide-up: slide-up 0.3s ease-out;
-  --animate-scale-in: scale-in 0.2s ease-out;
+body {
+  background-color: #111827;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #e5e7eb;
 }
 
 @keyframes fade-in {
@@ -31,43 +35,10 @@
   to { transform: translateY(0); opacity: 1; }
 }
 
-@keyframes scale-in {
-  from { transform: scale(0.95); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+.animate-fade-in {
+  animation: fade-in 0.3s ease-in-out;
 }
 
-body {
-  background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 50%, #e0e7ff 100%);
-  min-height: 100vh;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-}
-
-@layer utilities {
-  .btn-primary {
-    @apply bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200;
-  }
-  
-  .btn-success {
-    @apply bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-medium py-1.5 px-3 rounded-md shadow-sm hover:shadow-md transform hover:scale-[1.02] transition-all duration-200;
-  }
-  
-  .btn-warning {
-    @apply bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-medium py-1.5 px-3 rounded-md shadow-sm hover:shadow-md transform hover:scale-[1.02] transition-all duration-200;
-  }
-  
-  .btn-danger {
-    @apply bg-gradient-to-r from-red-500 to-pink-600 hover:from-red-600 hover:to-pink-700 text-white font-medium py-1.5 px-3 rounded-md shadow-sm hover:shadow-md transform hover:scale-[1.02] transition-all duration-200;
-  }
-  
-  .btn-secondary {
-    @apply bg-gradient-to-r from-gray-400 to-gray-500 hover:from-gray-500 hover:to-gray-600 text-white font-medium py-2 px-4 rounded-md shadow-sm hover:shadow-md transform hover:scale-[1.02] transition-all duration-200;
-  }
-
-  .card {
-    @apply bg-white/80 backdrop-blur-sm border border-white/20 shadow-xl hover:shadow-2xl rounded-2xl transition-all duration-300 hover:scale-[1.01];
-  }
-
-  .input-field {
-    @apply border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 bg-white/80 backdrop-blur-sm transition-all duration-200 placeholder:text-gray-400;
-  }
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
 }
