@@ -27,7 +27,7 @@ const AddTodoForm = ({ onTodoAdded }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-2xl mx-auto bg-gray-800 border border-gray-700 rounded-lg p-6 shadow-sm"
+      className="max-w-2xl mx-auto bg-white border border-gray-200 rounded-lg p-6 shadow-sm"
     >
       <div className="space-y-4">
         <div className="relative">
@@ -36,7 +36,7 @@ const AddTodoForm = ({ onTodoAdded }) => {
             placeholder="What needs to be done?"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+            className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
             required
           />
         </div>
@@ -47,14 +47,14 @@ const AddTodoForm = ({ onTodoAdded }) => {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             rows="3"
-            className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 resize-none"
+            className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 resize-none"
           />
         </div>
         
         <button
           type="submit"
           disabled={isSubmitting || !title.trim()}
-          className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-medium py-3 px-6 rounded-lg transition-all duration-200"
+          className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-medium py-3 px-6 rounded-lg transition-all duration-200"
         >
           <div className="flex items-center justify-center gap-2">
             {isSubmitting ? (

@@ -5,7 +5,6 @@ const EditTodoForm = ({ todo, onUpdate, onCancel }) => {
   const [description, setDescription] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Initialize form with todo data when component mounts
   useEffect(() => {
     if (todo) {
       setTitle(todo.title || "");
@@ -31,15 +30,15 @@ const EditTodoForm = ({ todo, onUpdate, onCancel }) => {
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black/70 z-50 p-4">
-      <div className="bg-gray-800 border border-gray-700 rounded-lg shadow-lg p-6 w-full max-w-lg mx-auto">
+    <div className="fixed inset-0 flex items-center justify-center bg-black/20 z-50 p-4">
+      <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-6 w-full max-w-lg mx-auto">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-semibold text-white">
+          <h2 className="text-xl font-semibold text-gray-900">
             Edit Task
           </h2>
           <button
             onClick={onCancel}
-            className="p-2 hover:bg-gray-700 rounded-full transition-colors duration-200 text-gray-400 hover:text-white"
+            className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200 text-gray-500 hover:text-gray-700"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -50,28 +49,28 @@ const EditTodoForm = ({ todo, onUpdate, onCancel }) => {
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-4">
             <div className="relative">
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
                 Task Title
               </label>
               <input
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+                className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
                 placeholder="Enter your task..."
                 required
               />
             </div>
             
             <div className="relative">
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
                 Description (Optional)
               </label>
               <textarea
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 rows="4"
-                className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 resize-none"
+                className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 resize-none"
                 placeholder="Add some details..."
               />
             </div>
@@ -81,14 +80,14 @@ const EditTodoForm = ({ todo, onUpdate, onCancel }) => {
             <button
               type="button"
               onClick={onCancel}
-              className="flex-1 px-4 py-3 bg-gray-700 hover:bg-gray-600 text-gray-300 font-medium rounded-lg transition-colors duration-200"
+              className="flex-1 px-4 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors duration-200 border border-gray-300"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={isSubmitting || !title.trim()}
-              className="flex-1 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200"
+              className="flex-1 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200"
             >
               <div className="flex items-center justify-center gap-2">
                 {isSubmitting ? (

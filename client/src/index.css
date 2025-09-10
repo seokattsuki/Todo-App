@@ -20,9 +20,9 @@
 }
 
 body {
-  background-color: #111827;
+  background-color: #fafafa;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  color: #e5e7eb;
+  color: #374151;
 }
 
 @keyframes fade-in {
